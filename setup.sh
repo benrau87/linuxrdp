@@ -26,12 +26,9 @@ cd librfxcodec
 make
 make install
 
-#cd ..
-#cd xorgxrdp/
-#./bootstrap
-#./configure
-#make
-#make install
+cd ..
+cd xorg/X11*
+./buildx.sh defalut
 
 cd ..
 
