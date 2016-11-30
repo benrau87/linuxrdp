@@ -3,7 +3,10 @@ if [ "$EUID" -ne 0 ]
   then echo "Please run as root"
   exit 1
 fi
-
+echo "Waiting for dpkg process to free up..."
+while fuser /var/lib/dpkg/lock >/dev/null 2>&1; do
+   sleep 1
+done
 echo "Installing required dependencies...Please wait"
 echo
 
