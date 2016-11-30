@@ -18,32 +18,27 @@ git submodule update
 
 cd librfxcodec
 
-make
-
-cd ..
-
-cd xorgxrdp/
-
 ./bootstrap
-
 ./configure
-
 make
-
 make install
 
+#cd ..
+#cd xorgxrdp/
+#./bootstrap
+#./configure
+#make
+#make install
+
 cd ..
+
 ./bootstrap
-
 ./configure --enable-fuse --enable-rfxcodec
-
 make
-
 make install
 
 xrdp-keygen xrdp auto
 
-update-rc.d xrdp defaults
 systemctl enable xrdp
 
 cp /etc/xrdp/xrdp.ini /etc/xrdp/xrdp.ini.bak.`date +%s` && sed -e s/"\[xrdp1\]"/"\[xrdp0\]\nname=Session Manager\nlib=libxup.so\nusername=ask\npassword=ask\nip=127.0.0.1\nport=-1\nxserverbpp=24\ncode=20\n\n\[xrdp1\]"/g /etc/xrdp/xrdp.ini > /tmp/xrdp.ini.tmp && cp /tmp/xrdp.ini.tmp /etc/xrdp/xrdp.ini
