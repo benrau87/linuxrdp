@@ -4,7 +4,7 @@ if [ "$EUID" -ne 0 ]
   exit 1
 fi
 
-echo "Installing required dependencies"
+echo "Installing required dependencies...Please wait"
 echo
 
 apt-get -qq install tmux git build-essential autoconf libtool nasm xserver-xorg-dev libxfixes-dev libssl-dev libpam0g-dev libfuse-dev libxrandr-dev -y
